@@ -8,27 +8,31 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        path: 'resumen',
+        loadChildren: () => import('../secciones/resumen/resumen.module').then(m => m.ResumenModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'ofertas',
+        loadChildren: () => import('../secciones/promociones/promociones.module').then(m => m.PromocionesModule)
       },
       {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        path: 'ayuda',
+        loadChildren: () => import('../secciones/ayuda/ayuda.module').then(m => m.AyudaModule)
+      },
+      {
+        path: 'menu',
+        loadChildren: () => import('../secciones/menu-lateral/menu.module').then(m => m.MenuModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/resumen',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/resumen',
     pathMatch: 'full'
   }
 ];

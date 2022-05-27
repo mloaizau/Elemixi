@@ -1,0 +1,8 @@
+{
+  "name": "Womistar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "c7dbb55c"
+}

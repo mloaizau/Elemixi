@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Womistar",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

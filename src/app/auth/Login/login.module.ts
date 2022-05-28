@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     RouterModule.forChild([{ path: '', component: LoginComponent }]),
     LoginRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [LoginComponent]
 })

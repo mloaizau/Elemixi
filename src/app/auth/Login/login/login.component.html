@@ -24,7 +24,7 @@
     </ion-row>
   </ion-grid>
 
-  <form #form="ngForm" (ngSubmit)="login(form)">
+  <form [formGroup]="usuario" (ngSubmit)="login(form)">
     <ion-grid>
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12" class="background-opacity">
@@ -34,15 +34,15 @@
           <div padding>
             <ion-item>
               <ion-label color="primary-contrast" position="floating">Correo</ion-label>
-              <ion-input name="email" type="email" placeholder="tu@correo.com" ngModel required></ion-input>
+              <ion-input formControlName="correo" type="email" placeholder="tu@correo.com" ngModel required></ion-input>
             </ion-item>
             <ion-item>
               <ion-label color="primary-contrast" position="floating">Contraseña</ion-label>
-              <ion-input name="password" type="password" placeholder="********" ngModel required></ion-input>
+              <ion-input formControlName="password" type="password" placeholder="********" ngModel required></ion-input>
             </ion-item>
           </div>
           <div padding>
-            <ion-button class="ion-text-capitalize" size="default" type="submit" [disabled]="form.invalid" expand="block">Ingresar</ion-button>
+            <ion-button (clic)="login()" class="ion-text-capitalize" size="default" type="submit" expand="block">Ingresar</ion-button>
           </div>
         </ion-col>
       </ion-row>
@@ -50,7 +50,7 @@
   </form>
   <ion-row class="bloque">
     <div>
-      Si no tienes una cuenta <a routerLink='/register'>regístrate</a>
+      Si no tienes una cuenta <a routerLink='/registro'>regístrate</a>
     </div>
   </ion-row>
 </ion-content>

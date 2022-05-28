@@ -24,13 +24,29 @@ ion-item{
   background: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
 }
+.logo-container{
+  position: absolute;
+  width: 100%;
+  margin-top: 105px;
+}
+.logo{
+  height: 50px;
+  float: right;
+}
+.logo-texto{
+  font-family: cursive;
+  font-size: 30px;
+  color: #FFFFFF;
+  text-align: left;
+  justify-content: center;
+}
 
 
 
 // fondo animado
 
 .area{
-    background: #4e54c8;
+    background: #045e4b7a;
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
     width: 100%;
     height:100%;

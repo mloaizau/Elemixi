@@ -13,6 +13,17 @@
             <li></li>
     </ul>
   </div >
+  <ion-grid>
+    <ion-row class="logo-container">
+      <ion-col size="5">
+        <ion-img class="logo" src="assets/Logo.png"></ion-img>
+      </ion-col>
+      <ion-col class="logo-texto" size-md="8">
+        <ion-label>elemixi</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <form #form="ngForm" (ngSubmit)="login(form)">
     <ion-grid>
       <ion-row color="primary" justify-content-center>
@@ -22,11 +33,11 @@
           </div>
           <div padding>
             <ion-item>
-              <ion-label position="floating">Correo</ion-label>
+              <ion-label color="primary-contrast" position="floating">Correo</ion-label>
               <ion-input name="email" type="email" placeholder="tu@correo.com" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="floating">Contraseña</ion-label>
+              <ion-label color="primary-contrast" position="floating">Contraseña</ion-label>
               <ion-input name="password" type="password" placeholder="********" ngModel required></ion-input>
             </ion-item>
           </div>

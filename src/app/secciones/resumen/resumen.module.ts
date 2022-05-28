@@ -2,7 +2,7 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ResumenPage } from './resumen/resumen.page';
+import { ResumenPage } from './resumen/resumen.component';
 import { ResumenRoutingModule } from './resumen-routing.module';
 
 @NgModule({

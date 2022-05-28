@@ -20,10 +20,6 @@ const routes: Routes = [
         loadChildren: () => import('../secciones/ayuda/ayuda.module').then(m => m.AyudaModule)
       },
       {
-        path: 'menu',
-        loadChildren: () => import('../secciones/menu-lateral/menu.module').then(m => m.MenuModule)
-      },
-      {
         path: '',
         redirectTo: 'tabs/resumen',
         pathMatch: 'full'

@@ -8,7 +8,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./auth/Login/login.module').then(m => m.LoginModule)
+    loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./auth/registro/registro.module').then(m => m.RegistroModule)
   },
   {
     path: '',

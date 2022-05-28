@@ -12,11 +12,6 @@ export class MensajeConfirmacionComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-    console.log("component ready!");
-  }
+  ngOnInit() {}
 
-  toLogin(){
-    this.router.navigate(['/login']);
-  }
 }

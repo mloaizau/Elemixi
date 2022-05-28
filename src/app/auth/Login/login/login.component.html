@@ -1,9 +1,23 @@
 <ion-content padding>
+  <div class="area" >
+    <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+    </ul>
+  </div >
   <form #form="ngForm" (ngSubmit)="login(form)">
     <ion-grid>
       <ion-row color="primary" justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div class="titulo">
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12" class="background-opacity">
+          <div class="texto-centrado">
             <h3>Iniciar Sesión</h3>
           </div>
           <div padding>
@@ -15,21 +29,17 @@
               <ion-label position="floating">Contraseña</ion-label>
               <ion-input name="password" type="password" placeholder="********" ngModel required></ion-input>
             </ion-item>
-            <ion-item>
-
-            </ion-item>
           </div>
           <div padding>
-            <ion-button size="default" type="submit" [disabled]="form.invalid" expand="block">Ingresar</ion-button>
+            <ion-button class="ion-text-capitalize" size="default" type="submit" [disabled]="form.invalid" expand="block">Ingresar</ion-button>
           </div>
         </ion-col>
       </ion-row>
     </ion-grid>
   </form>
-  <ion-row>
-    <div text-center>
-      If you don't have an account, please <a routerLink='/register'>
-      register</a> first!
-      </div>
+  <ion-row class="bloque">
+    <div>
+      Si no tienes una cuenta <a routerLink='/register'>regístrate</a>
+    </div>
   </ion-row>
 </ion-content>

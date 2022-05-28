@@ -1,0 +1,56 @@
+<ion-content padding>
+  <div class="area" >
+    <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+    </ul>
+  </div >
+  <ion-grid>
+    <ion-row class="logo-container">
+      <ion-col size="5">
+        <ion-img class="logo" src="assets/Logo.png"></ion-img>
+      </ion-col>
+      <ion-col class="logo-texto" size-md="8">
+        <ion-label>elemixi</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12" class="background-opacity">
+          <div class="texto-centrado">
+            <h3>Iniciar Sesión</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-label color="primary-contrast" position="floating">Correo</ion-label>
+              <ion-input name="email" type="email" placeholder="tu@correo.com" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary-contrast" position="floating">Contraseña</ion-label>
+              <ion-input name="password" type="password" placeholder="********" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button class="ion-text-capitalize" size="default" type="submit" [disabled]="form.invalid" expand="block">Ingresar</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <ion-row class="bloque">
+    <div>
+      Si no tienes una cuenta <a routerLink='/register'>regístrate</a>
+    </div>
+  </ion-row>
+</ion-content>

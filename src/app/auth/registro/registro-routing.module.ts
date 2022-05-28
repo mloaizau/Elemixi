@@ -6,7 +6,11 @@ const routes: Routes = [
   {
     path: '',
     component: RegistroComponent,
-  }
+  },
+  {
+    path: 'mensaje-confirmacion',
+    loadChildren: () => import('./mensaje-confirmacion/mensaje-confirmacion.module').then(m => m.MensajeConfirmacionModule)
+  },
 ];
 
 @NgModule({

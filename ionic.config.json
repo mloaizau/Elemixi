@@ -1,7 +1,10 @@
 {
-  "name": "Womistar",
+  "name": "elemixi",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
   },
   "type": "angular",
   "id": "c7dbb55c"

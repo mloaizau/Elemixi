@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/interface/usuario';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-registro',
@@ -7,8 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor() { }
+  registroUsuario: Usuario;
+
+  constructor(
+    private firestoreService: FirestoreService
+  ) {
+    this.registroUsuario = {} as Usuario;
+  }
 
   ngOnInit() {}
+
+  registro(){
+    this.firestoreService.insertar("elemixiUser", this.registroUsuario).then(() => {
+      console.log('Registro creado correctamente!');
+      this.registroUsuario = {} as Usuario;
+    }, (error) => {
+      console.error(error);
+    });
+  }
 
 }

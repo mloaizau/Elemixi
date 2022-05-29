@@ -12,7 +12,6 @@ export class RandommerService {
 
   getRandomPhone() {
     return new Promise((resolve, reject) => {
-      console.log("get random phone");
       const url = 'https://randommer.io/api/Phone/Generate?CountryCode=CL&Quantity=1';
       const httpOptions = {
         headers: new HttpHeaders({
@@ -23,7 +22,6 @@ export class RandommerService {
         })
       };
       this.httpClient.get(url, httpOptions).subscribe(data => {
-        console.log(data);
         resolve(data)
       });
     });

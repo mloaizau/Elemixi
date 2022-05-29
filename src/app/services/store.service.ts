@@ -14,7 +14,6 @@ export class StoreService {
     return new Promise((resolve, reject) => {
       const url = 'https://fakestoreapi.com/products/category/electronics';
       this.httpClient.get(url).subscribe(data => {
-        console.log(data);
         resolve(data)
       });
     });

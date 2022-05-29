@@ -16,7 +16,6 @@ export class PromocionesPage {
 
   async getStore(){
     this.productos = await this._storeService.getStore();
-    console.log(this.productos);
   }
 
   async ionViewWillEnter(){

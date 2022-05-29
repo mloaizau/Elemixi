@@ -9,7 +9,28 @@
 
 <ion-content>
   <ion-item lines="none" *ngIf="session">
-    <ion-label>Tú número</ion-label>
-    <ion-label>{{session.telefono}}</ion-label>
+    <h3 style="margin-right: 50px; margin-left: 10px;">Tú número</h3>
+    <h3>{{session.telefono}}</h3>
   </ion-item>
+  <ion-card class="texto-centrado">
+    <h3 >Has consumido</h3>
+    <img class="imagen" src="assets/minutos.PNG" />
+  </ion-card>
+  <ion-card class="texto-centrado">
+    <h3>Has consumido</h3>
+    <img class="imagen" src="assets/giga.PNG" />
+  </ion-card>
+  <ion-card >
+    <h3 class="texto-centrado">Bolsas Activas</h3>
+    <ion-tem>
+      <ion-icon slot="start" class="icono" name="bag-outline"></ion-icon>
+      <ion-label>Bolsa de 4 GB</ion-label>
+    </ion-tem>
+    <ion-item>
+      <ion-label>4 GB o 30 días, lo que ocurra primero.</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>$3.990</ion-label>
+    </ion-item>
+  </ion-card>
 </ion-content>

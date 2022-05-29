@@ -1,15 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Promociones
+      Catálogo
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Promociones</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card class="centrado" *ngFor="let producto of productos">
+    <img class="image-size" src="{{producto.image}}" />
+    <ion-card-header>
+      <ion-card-subtitle>${{producto.price}}.000</ion-card-subtitle>
+      <ion-card-title>{{producto.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="justificado">
+      {{producto.description}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StoreService } from '../../../services/store.service';
 
 @Component({
   selector: 'app-promo',
@@ -7,6 +8,21 @@ import { Component } from '@angular/core';
 })
 export class PromocionesPage {
 
-  constructor() {}
+  public productos: any;
+
+  constructor(
+    private _storeService: StoreService
+  ) { }
+
+  async getStore(){
+    this.productos = await this._storeService.getStore();
+    console.log(this.productos);
+  }
+
+  async ionViewWillEnter(){
+    if(!this.productos){
+      this.getStore();
+    }
+  }
 
 }

@@ -3,25 +3,30 @@
     <ion-menu class="custom-menu" side="end" menuId="main-menu" contentId="main-content">
       <ion-content>
         <ion-list>
-          <ion-item>
-            <ion-icon name="mail" slot="start"></ion-icon>
-            <ion-label>Inbox</ion-label>
+          <ion-item lines="none">
+            <ion-icon class="icon-perfil" name="person-circle-outline"></ion-icon>
+          </ion-item>
+          <ion-item lines="none" *ngIf="session">
+              <ion-label class="texto-centrado">¡Hola {{session.nombre}}!</ion-label>
+          </ion-item>
+          <ion-item *ngIf="session">
+            <ion-label class="texto-centrado">{{session.telefono}}</ion-label>
+          </ion-item>
+          <ion-item (click)="enrutamiento('resumen')">
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>Resumen</ion-label>
+          </ion-item>
+          <ion-item (click)="enrutamiento('ofertas')">
+            <ion-icon name="pricetags" slot="start"></ion-icon>
+            <ion-label>Promociones</ion-label>
           </ion-item>
           <ion-item>
-            <ion-icon name="paper-plane" slot="start"></ion-icon>
-            <ion-label>Outbox</ion-label>
+            <ion-icon name="phone-portrait" slot="start"></ion-icon>
+            <ion-label>Equipos</ion-label>
           </ion-item>
-          <ion-item>
-            <ion-icon name="heart" slot="start"></ion-icon>
-            <ion-label>Favorites</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-icon name="archive" slot="start"></ion-icon>
-            <ion-label>Archived</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-icon name="trash" slot="start"></ion-icon>
-            <ion-label>Trash</ion-label>
+          <ion-item (click)="enrutamiento('ayuda')">
+            <ion-icon name="information-circle" slot="start"></ion-icon>
+            <ion-label>Información</ion-label>
           </ion-item>
         </ion-list>
       </ion-content>

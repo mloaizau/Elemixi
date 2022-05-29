@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/interface/usuario';
+import { Usuario } from "../../../interface/usuario";
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SessionService } from "../../../services/session.service";
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private firestoreService: FirestoreService,
-    private router: Router
+    private router: Router,
+    private session: SessionService
   ) { }
 
   ngOnInit() {}
@@ -30,21 +32,22 @@ export class LoginComponent implements OnInit {
   login(){
     let correo = this.usuario.controls.correo.value;
     let psw = this.usuario.controls.password.value;
-    this.firestoreService.consultar("elemixiUser").subscribe((resultadoConsultaTareas) => {
+    this.firestoreService.consultar("elemixiUser").subscribe(async (resultadoConsultaTareas) => {
       this.arrayColeccionUsuario = [];
       resultadoConsultaTareas.forEach((datosUsers: any) => {
         this.arrayColeccionUsuario.push({
           data: datosUsers.payload.doc.data()
         });
-        console.log(this.arrayColeccionUsuario);
       });
       let user = this.arrayColeccionUsuario.find(x => x.data.correo == correo);
-      console.log(user.data.correo);
+      console.log(user.data);
       if(user.data.passwd === psw){
-        console.log("Login correcto");
+        await this.session.set("sessionActive", user.data);
+        let ses = await this.session.get("sessionActive");
+        console.log(ses);
         this.router.navigate(["/home"]);
       } else{
-        console.log("pass erroneo")
+        console.log("pass erroneo");
       }
     });
   }

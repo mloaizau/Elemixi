@@ -1,16 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Ayuda
+      Información
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Ayuda</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+  <div class="bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+  <ion-grid>
+    <ion-row class="logo-container">
+      <ion-col size="5">
+        <ion-img class="logo" src="assets/Logo.png"></ion-img>
+      </ion-col>
+      <ion-col class="logo-texto" size-md="8">
+        <ion-label>elemixi</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="info-container">
+      <ion-label>
+        Elemixi es una de las marcas más reconocidas a nivel mundial, y está convirtiéndose rápidamente en la primera marca global de renombre del siglo XXI.
+      </ion-label>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from "../../../services/session.service";
-import { RandommerService } from 'src/app/services/randommer.service';
 @Component({
   selector: 'app-resumen',
   templateUrl: 'resumen.component.html',
@@ -9,11 +8,9 @@ import { RandommerService } from 'src/app/services/randommer.service';
 export class ResumenPage implements OnInit {
 
   public session: any;
-  public random: any;
 
   constructor(
-    private _session: SessionService,
-    private randommer: RandommerService
+    private _session: SessionService
   ) {
     console.log("constructor resumen");
   }
@@ -29,10 +26,7 @@ export class ResumenPage implements OnInit {
     console.log(this.session)
   }
 
-  ionViewWillEnter(){
-    this.randommer.getRandomPhone();
-    console.log("ionViewWillEnter");
-    console.log(this.session);
+  async ionViewWillEnter(){
     if(!this.session){
       this.obtenerSession();
     }

@@ -2,13 +2,14 @@
   <ion-toolbar>
     <ion-item lines="none" *ngIf="session">
       <ion-icon class="avatar" name="person-circle-outline"></ion-icon>
-      <ion-label>¡Hola {{session.nombre}} bienvenido!</ion-label>
+      <ion-label>¡Hola {{session.nombre}}, buen día!</ion-label>
     </ion-item>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-label>aqui random</ion-label>
-  <ion-label>{{random}}</ion-label>
-
+<ion-content>
+  <ion-item lines="none" *ngIf="session">
+    <ion-label>Tú número</ion-label>
+    <ion-label>{{session.telefono}}</ion-label>
+  </ion-item>
 </ion-content>

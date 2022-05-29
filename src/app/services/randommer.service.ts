@@ -11,14 +11,21 @@ export class RandommerService {
   ) { }
 
   getRandomPhone() {
-    const url = 'https://randommer.io/api/Phone/Generate?CountryCode=CL&Quantity=1';
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'x-api-key': '24ac60c5d7f74658a778c400cbaf6769',
-        'Access-Control-Allow-Origin':'*',
-
-      })
-    };
-    return this.httpClient.get(url, httpOptions);
+    return new Promise((resolve, reject) => {
+      console.log("get random phone");
+      const url = 'https://randommer.io/api/Phone/Generate?CountryCode=CL&Quantity=1';
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'x-api-key': '24ac60c5d7f74658a778c400cbaf6769',
+          'Access-Control-Allow-Origin': 'http://localhost:8100',
+          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        })
+      };
+      this.httpClient.get(url, httpOptions).subscribe(data => {
+        console.log(data);
+        resolve(data)
+      });
+    });
   }
 }

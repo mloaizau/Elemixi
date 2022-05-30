@@ -1,6 +1,6 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu class="custom-menu" side="end" menuId="main-menu" contentId="main-content">
+    <ion-menu swipeGesture="false" (ionWillOpen)="ionWillOpen()" class="custom-menu" side="end" menuId="main-menu" contentId="main-content">
       <ion-content>
         <ion-list>
           <ion-item lines="none">
@@ -18,11 +18,7 @@
           </ion-item>
           <ion-item (click)="enrutamiento('ofertas')">
             <ion-icon name="pricetags" slot="start"></ion-icon>
-            <ion-label>Promociones</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-icon name="phone-portrait" slot="start"></ion-icon>
-            <ion-label>Equipos</ion-label>
+            <ion-label>Catálogo</ion-label>
           </ion-item>
           <ion-item (click)="enrutamiento('ayuda')">
             <ion-icon name="information-circle" slot="start"></ion-icon>
@@ -31,7 +27,7 @@
         </ion-list>
       </ion-content>
       <ion-footer-bar class="bar-stable" >
-        <ion-item class="borde-logout" routerLink="/login" (click)="closeMenu()">
+        <ion-item class="borde-logout" routerLink="/login" (click)="cerrarSesion()">
           <ion-icon name="log-out-outline" slot="start"></ion-icon>
           <ion-label>Cerrar sesión</ion-label>
         </ion-item>

@@ -40,6 +40,9 @@
               <ion-label color="primary-contrast" position="floating">Contraseña</ion-label>
               <ion-input formControlName="password" type="password" placeholder="********" ngModel required></ion-input>
             </ion-item>
+            <ion-item lines="none" *ngIf="isError">
+              <ion-label style="color:#eb445a; font-size: 12px;">usuario o contraseña erronea</ion-label>
+            </ion-item>
           </div>
           <div padding>
             <ion-button (click)="login()" class="ion-text-capitalize" size="default" type="submit" expand="block">Ingresar</ion-button>

@@ -23,18 +23,21 @@ export class AppComponent {
     this.menuCtrl.close();
   }
 
+  ionWillOpen() {
+    this.obtenerSession();
+  }
+
   async obtenerSession(){
     this.session = await this._session.get("sessionActive");
   }
 
-  async ionViewWillEnter(){
-    if(!this.session){
-      this.obtenerSession();
-    }
-  }
-
   enrutamiento(url){
     this.route.navigate(["/home/tabs/"+url]);
+    this.closeMenu();
+  }
+
+  cerrarSesion(){
+    this._session.remove("sessionActive");
     this.closeMenu();
   }
 }

@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
   });
 
+  isError: boolean;
+
   constructor(
     private firestoreService: FirestoreService,
     private router: Router,
@@ -40,14 +42,21 @@ export class LoginComponent implements OnInit {
         });
       });
       let user = this.arrayColeccionUsuario.find(x => x.data.correo == correo);
-      console.log(user.data);
+      if(!user){
+        this.isError = true;
+        setTimeout(() => {
+          this.isError = false;
+        }, 5000);
+        return;
+      }
       if(user.data.passwd === psw){
         await this.session.set("sessionActive", user.data);
-        let ses = await this.session.get("sessionActive");
-        console.log(ses);
         this.router.navigate(["/home"]);
       } else{
-        console.log("pass erroneo");
+        this.isError = true;
+        setTimeout(() => {
+          this.isError = false;
+        }, 5000);
       }
     });
   }

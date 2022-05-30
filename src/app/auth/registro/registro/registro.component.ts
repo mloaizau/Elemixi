@@ -11,27 +11,49 @@ import { RandommerService } from 'src/app/services/randommer.service';
 export class RegistroComponent implements OnInit {
 
   registroUsuario: Usuario;
+  isErrorEmail: boolean;
+  isValid: boolean;
 
   constructor(
     private firestoreService: FirestoreService,
     private router: Router,
-    private randommer: RandommerService
+    private randommer: RandommerService,
   ) {
     this.registroUsuario = {} as Usuario;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   async registro(){
-    const numero = await this.randommer.getRandomPhone();
+    const numero = "+56 80 839 6137";
+    //const numero = await this.randommer.getRandomPhone(); //Problemas de CORS
     this.registroUsuario.telefono = numero;
     this.firestoreService.insertar("elemixiUser", this.registroUsuario).then(() => {
-      console.log('Registro creado correctamente!');
       this.registroUsuario = {} as Usuario;
       this.router.navigate(["/registro/mensaje-confirmacion"]);
     }, (error) => {
       console.error(error);
     });
   }
+
+  ValidateEmail(mail){
+    if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
+      this.isErrorEmail = false;
+      this.validadorGlobal();
+    } else{
+      this.isErrorEmail = true;
+    }
+  }
+
+  validadorGlobal(){
+    if(this.registroUsuario.nombre !== "" && this.registroUsuario.passwd !== "" && !this.isErrorEmail){
+      this.isValid = true;
+    } else{
+      this.isValid = false;
+    }
+  }
+
+
 
 }

@@ -26,7 +26,8 @@ export class RegistroComponent implements OnInit {
   }
 
   async registro(){
-    const numero = await this.randommer.getRandomPhone();
+    const numero = "+56 80 839 6137";
+    //const numero = await this.randommer.getRandomPhone(); //Problemas de CORS
     this.registroUsuario.telefono = numero;
     this.firestoreService.insertar("elemixiUser", this.registroUsuario).then(() => {
       this.registroUsuario = {} as Usuario;

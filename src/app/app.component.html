@@ -1,6 +1,6 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu class="custom-menu" side="end" menuId="main-menu" contentId="main-content">
+    <ion-menu (ionWillOpen)="ionWillOpen()" class="custom-menu" side="end" menuId="main-menu" contentId="main-content">
       <ion-content>
         <ion-list>
           <ion-item lines="none">
@@ -27,7 +27,7 @@
         </ion-list>
       </ion-content>
       <ion-footer-bar class="bar-stable" >
-        <ion-item class="borde-logout" routerLink="/login" (click)="closeMenu()">
+        <ion-item class="borde-logout" routerLink="/login" (click)="cerrarSesion()">
           <ion-icon name="log-out-outline" slot="start"></ion-icon>
           <ion-label>Cerrar sesión</ion-label>
         </ion-item>
